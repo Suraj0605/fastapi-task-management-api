@@ -17,29 +17,29 @@ class Category(BaseModel):
         examples=["blue"]
     )
 
-class Todo(BaseModel):
+class Task(BaseModel):
     title: str= Field(
         ...,
         min_length=3,
         max_length=50,
-        description="Title of the Todo",
+        description="Title of the Task",
         examples=["Maths"]
     )
     description: str= Field(
         ...,
         min_length=5,
         max_length=200,
-        description="Description of the Todo",
+        description="Description of the Task",
         examples=["Solve integration problem"]
     )
     completed: bool= Field(
         False,
-        description="Status of the Todo",
+        description="Status of the Task",
         examples=[False]
     )
     category: Optional[Category] = Field(
         None,
-        description="Category of the Todo",
+        description="Category of the Task",
         examples=[{"name": "Study", "color": "blue"}]
     )
     @field_validator("title")
@@ -52,10 +52,5 @@ class Todo(BaseModel):
     def check_completed_description(self):
         if self.completed == True:
             if "completed" not in self.description.lower():
-                raise ValueError("If todo is completed, description must contain word 'completed'!")
+                raise ValueError("If task is completed, description must contain word 'completed'!")
         return self   
-
-    
-
-# TODO  field validator (Done)
-# TODO model  validator (Done)

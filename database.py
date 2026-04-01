@@ -7,5 +7,5 @@ load_dotenv()
 MONGODB_URL = os.getenv("MONGODB_URL")
 client = MongoClient(MONGODB_URL)
 
-db = client["todo_db"]
-todos_collection = db["todos"]
+db = client["task_db"]
+tasks_collection = db["tasks"]

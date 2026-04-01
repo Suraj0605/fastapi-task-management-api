@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes.todo_routes import router as todo_router
+from routes.task_routes import router as task_router
 from routes.auth_routes import router as auth_router
 from middleware.logger_middleware import log_middleware
 
@@ -19,10 +19,10 @@ app.add_middleware(
 )
 app.middleware("http")(log_middleware)
 
-app.include_router(todo_router)
+app.include_router(task_router)
 app.include_router(auth_router)
 
 @app.get("/")
 def home():
-    return {"message": "Welcome to Todo API!"}
+    return {"message": "Welcome to Task API!"}
 
