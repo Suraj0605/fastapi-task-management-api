@@ -1,55 +1,101 @@
 # Task Management Backend API
 
-A production-ready REST API built with FastAPI and MongoDB.
+A RESTful backend service for managing tasks built with **FastAPI**, featuring **JWT authentication**, **Redis caching**, and **MongoDB** integration.
+
+---
 
 ## Tech Stack
+
+- Python
 - FastAPI
 - MongoDB
-- Redis (Caching)
+- Redis
 - JWT Authentication
 - Pydantic
-- Python
+
+---
 
 ## Features
-- CRUD operations
+
+- CRUD operations for tasks
 - JWT Authentication & Authorization
-- Redis Caching
-- Middleware & Logging
-- CORS
-- Data Validation
+- Redis caching for faster responses
+- Request logging middleware
+- CORS support
+- Data validation with Pydantic
+
+---
+
+## Project Structure
+
+```
+auth/           → JWT authentication logic
+routes/         → API endpoint definitions
+models/         → Pydantic schemas
+middleware/     → request logging middleware
+database.py     → MongoDB connection setup
+redis_client.py → Redis caching configuration
+main.py         → FastAPI application entry point
+```
+
+---
 
 ## Installation
 
-1. Clone the repository
+### 1. Clone the repository
 
+```bash
 git clone https://github.com/Suraj0605/fastapi-task-management-api.git
+```
 
-2. Navigate to the project folder
+### 2. Navigate to the project folder
 
+```bash
 cd fastapi-task-management-api
+```
 
-3. Install dependencies
+### 3. Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Run the server
+### 4. Run the server
 
+```bash
 uvicorn main:app --reload
+```
 
-5. Open API documentation
+### 5. Open API documentation
 
+```
 http://localhost:8000/docs
+```
+
+---
 
 ## API Endpoints
 
-Authentication
+### Authentication
 
-POST /auth/register  
-POST /auth/login  
+| Method | Endpoint | Description |
+|------|------|------|
+| POST | /auth/register | Register a new user |
+| POST | /auth/login | Login and get JWT token |
 
-Tasks
+### Tasks
 
-GET /tasks  
-POST /tasks  
-PUT /tasks/{id}  
-DELETE /tasks/{id}
+| Method | Endpoint | Description |
+|------|------|------|
+| GET | /tasks | Get all tasks |
+| POST | /tasks | Create a new task |
+| PUT | /tasks/{id} | Update task |
+| DELETE | /tasks/{id} | Delete task |
+
+---
+
+## Author
+
+**Suraj Shrivastava**   
+Computer Engineering Student | Backend Developer  
+LinkedIn: [https://linkedin.com/in/suraj-shrivastava](https://www.linkedin.com/in/suraj-shrivastava-3a69b0254/)
